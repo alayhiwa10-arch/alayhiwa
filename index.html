@@ -1,120 +1,479 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ckb" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALAyHiWA | Official Website</title>
-  <meta name="description" content="Welcome to ALAyHiWA — a new world starts here.">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: #080816;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      overflow: hidden;
-    }
-
-    .glow {
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: #00eaff;
-      filter: blur(150px);
-      opacity: 0.18;
-      top: 5%;
-      left: 10%;
-    }
-
-    .card {
-      position: relative;
-      width: 100%;
-      max-width: 650px;
-      text-align: center;
-      padding: 55px 25px;
-      background: rgba(20, 20, 45, 0.85);
-      border: 1px solid rgba(0, 238, 255, 0.45);
-      border-radius: 24px;
-      box-shadow: 0 0 35px rgba(0, 238, 255, 0.12);
-    }
-
-    .logo {
-      font-size: clamp(38px, 9vw, 66px);
-      font-weight: 900;
-      letter-spacing: 3px;
-      color: #00f0ff;
-      text-shadow: 0 0 20px #00d9ff;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 25px;
-      margin-bottom: 15px;
-    }
-
-    p {
-      color: #c8c8dc;
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 28px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 30px;
-      border-radius: 10px;
-      color: #080816;
-      background: #00eaff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      background: white;
-      box-shadow: 0 0 25px #00eaff;
-      transform: translateY(-2px);
-    }
-
-    footer {
-      margin-top: 35px;
-      color: #77778e;
-      font-size: 13px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b1a">
+<title>ALAyHiWA | فرۆشگای ئۆنلاین</title>
+<style>
+:root {
+  --bg:#080b1a;
+  --card:rgba(22,29,58,.82);
+  --white:#f7f8ff;
+  --muted:#b3bdd8;
+  --blue:#63d5ff;
+  --purple:#9b83ff;
+  --green:#25d366;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:
+    radial-gradient(ellipse at 12% 10%,#30216a88,transparent 35%),
+    radial-gradient(ellipse at 90% 35%,#064e7180,transparent 32%),
+    radial-gradient(ellipse at 45% 85%,#40206655,transparent 38%),
+    var(--bg);
+  color:var(--white);
+  line-height:1.8;
+  min-height:100vh;
+}
+a {color:inherit;text-decoration:none}
+button,input {font:inherit}
+button {cursor:pointer}
+.container {width:min(1120px,92%);margin:auto}
+header {
+  position:sticky;top:0;z-index:20;
+  background:#080b1add;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #ffffff14;
+}
+.nav {
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;padding:15px 0;flex-wrap:wrap;
+}
+.logo {
+  font-size:25px;font-weight:900;letter-spacing:1px;
+  background:linear-gradient(100deg,var(--blue),var(--purple));
+  color:transparent;background-clip:text;
+}
+.navlinks {display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+.navlinks a {color:#dce5ff;transition:.2s}
+.navlinks a:hover {color:var(--blue)}
+.hero {
+  position:relative;overflow:hidden;
+  padding:76px 0 60px;
+}
+.hero:before {
+  content:"";position:absolute;width:300px;height:300px;
+  border-radius:50%;background:#7058ff22;filter:blur(50px);
+  top:10px;left:-100px;pointer-events:none;
+}
+.hero-grid {
+  display:grid;grid-template-columns:1.15fr .85fr;
+  align-items:center;gap:35px;position:relative;
+}
+.eyebrow {
+  display:inline-block;padding:6px 14px;border-radius:30px;
+  border:1px solid #8f83ff55;background:#8270ff12;
+  color:#c9c0ff;font-size:13px;
+}
+h1 {font-size:clamp(35px,6vw,60px);line-height:1.35;margin:18px 0}
+.gradient-text {
+  background:linear-gradient(90deg,#63d5ff,#a38bff,#ff9bda);
+  color:transparent;background-clip:text;
+}
+.hero p {color:var(--muted);max-width:570px}
+.actions {display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn {
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 20px;border-radius:12px;border:1px solid #ffffff20;
+  transition:transform .2s,filter .2s;
+}
+.btn:hover {transform:translateY(-3px);filter:brightness(1.12)}
+.primary {
+  color:#07101e;font-weight:bold;border:0;
+  background:linear-gradient(100deg,var(--blue),#9c91ff);
+  box-shadow:0 8px 30px #6b88ff30;
+}
+.secondary {background:#ffffff08}
+.hero-art {
+  min-height:320px;display:grid;place-items:center;position:relative;
+}
+.orbit {
+  width:min(320px,75vw);aspect-ratio:1;border-radius:50%;
+  display:grid;place-items:center;
+  border:1px solid #8f9cff44;
+  background:radial-gradient(circle,#6b66ff24 0%,#1b275044 48%,#10152c55 70%);
+  box-shadow:0 0 80px #6e66ff20,inset 0 0 55px #55caff0c;
+  position:relative;
+}
+.orbit:before,.orbit:after {
+  content:"";position:absolute;border-radius:50%;
+  border:1px solid #6bd8ff30;inset:22px;
+}
+.orbit:after {inset:45px;border-color:#b08aff40}
+.main-emoji {
+  font-size:105px;filter:drop-shadow(0 0 28px #72caff88);
+  animation:float 4s ease-in-out infinite;
+}
+.float-card {
+  position:absolute;padding:10px 15px;border-radius:14px;
+  border:1px solid #ffffff1e;background:#131a32e8;
+  box-shadow:0 10px 35px #0004;font-size:13px;
+}
+.float-one {top:35px;right:0}
+.float-two {bottom:35px;left:0}
+@keyframes float {50%{transform:translateY(-12px)}}
+.stats {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:13px;
+  margin:10px 0 65px;
+}
+.stat {
+  padding:18px 10px;text-align:center;border-radius:17px;
+  border:1px solid #ffffff13;
+  background:linear-gradient(145deg,#ffffff0c,#ffffff03);
+}
+.stat strong {display:block;font-size:25px;color:var(--blue)}
+.stat span {font-size:13px;color:var(--muted)}
+section {scroll-margin-top:90px}
+.section-head {margin-bottom:22px}
+.section-head h2 {font-size:30px;margin:0}
+.section-head p {color:var(--muted);margin:5px 0}
+.search-row {display:flex;gap:12px;margin:22px 0;flex-wrap:wrap}
+.search {
+  flex:1;min-width:200px;padding:13px 16px;
+  color:white;background:#ffffff09;
+  border:1px solid #ffffff1d;border-radius:12px;outline:none;
+}
+.search:focus {border-color:var(--blue)}
+.filters {display:flex;gap:9px;flex-wrap:wrap;margin-bottom:25px}
+.filter {
+  padding:8px 15px;border-radius:25px;
+  color:#dbe2fa;background:#ffffff08;border:1px solid #ffffff18;
+}
+.filter.active,.filter:hover {
+  color:#08101c;background:linear-gradient(90deg,var(--blue),#a797ff);
+  border-color:transparent;
+}
+.products {
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;
+}
+.product {
+  overflow:hidden;border-radius:20px;
+  border:1px solid #ffffff17;
+  background:linear-gradient(145deg,#1c2442dc,#10152be8);
+  box-shadow:0 15px 35px #0002;
+  transition:transform .25s,border-color .25s;
+}
+.product:hover {transform:translateY(-6px);border-color:#8c9bff66}
+.product-visual {
+  min-height:155px;display:grid;place-items:center;
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at center,#7d75ff29,transparent 65%),
+    linear-gradient(135deg,#182c49,#211b42);
+  border-bottom:1px solid #ffffff10;
+}
+.product-visual:before {
+  content:"";position:absolute;width:130px;height:130px;
+  border:1px solid #ffffff12;border-radius:50%;
+}
+.product-visual span {
+  font-size:65px;position:relative;
+  filter:drop-shadow(0 8px 15px #0005);
+  transition:transform .25s;
+}
+.product:hover .product-visual span {transform:scale(1.12)}
+.product-body {padding:18px}
+.category {color:var(--blue);font-size:12px}
+.product h3 {margin:5px 0;font-size:19px}
+.desc {color:var(--muted);font-size:13px;min-height:48px;margin:6px 0}
+.price {font-size:20px;font-weight:bold;color:#a7f3d0}
+.stock {font-size:12px;color:#c4cce2;margin:6px 0 15px}
+.order {width:100%;font-weight:bold}
+.note {
+  margin-top:22px;padding:13px 16px;border-radius:12px;
+  background:#ffffff07;border:1px solid #ffffff12;
+  color:var(--muted);font-size:13px;
+}
+.steps {
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:15px;margin:30px 0 70px;
+}
+.step {
+  padding:22px;border-radius:17px;
+  border:1px solid #ffffff15;background:#ffffff07;
+}
+.step-num {
+  display:grid;place-items:center;width:42px;height:42px;
+  border-radius:12px;background:#8c7cff22;color:#c2b8ff;
+  font-weight:bold;font-size:20px;
+}
+.step h3 {margin:12px 0 4px}
+.step p {color:var(--muted);font-size:14px;margin:0}
+.contact-box {
+  padding:35px 20px;text-align:center;border-radius:24px;
+  border:1px solid #ffffff20;
+  background:
+    radial-gradient(ellipse at 50% 0%,#7d70ff25,transparent 65%),
+    #ffffff06;
+  margin:20px 0 65px;
+}
+.contact-box h2 {font-size:29px;margin:0 0 8px}
+.contact-box p {color:var(--muted)}
+.phone {
+  display:block;font-size:22px;font-weight:bold;
+  direction:ltr;color:#9ff5c1;margin:14px 0;
+}
+.whatsapp {background:var(--green);color:#062a15;font-weight:bold;border:0}
+footer {
+  border-top:1px solid #ffffff14;padding:22px 0;
+  text-align:center;color:var(--muted);font-size:13px;
+}
+.floating-wa {
+  position:fixed;bottom:20px;left:20px;z-index:30;
+  background:var(--green);color:#06351c;
+  padding:12px 17px;border-radius:50px;font-weight:bold;
+  box-shadow:0 8px 30px #25d36635;
+}
+.empty {grid-column:1/-1;text-align:center;color:var(--muted);padding:30px}
+@media(max-width:760px) {
+  .hero {padding-top:45px}
+  .hero-grid {grid-template-columns:1fr;text-align:center}
+  .hero p {margin:auto}
+  .actions {justify-content:center}
+  .hero-art {min-height:280px}
+  .orbit {width:250px}
+  .main-emoji {font-size:80px}
+  .products {grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .product-body {padding:13px}
+  .product h3 {font-size:16px}
+  .price {font-size:17px}
+  .desc {min-height:65px;font-size:12px}
+  .steps {grid-template-columns:1fr}
+  .nav {justify-content:center}
+  .navlinks {justify-content:center;gap:14px}
+}
+@media(max-width:390px) {
+  .products {grid-template-columns:1fr}
+  .product-visual {min-height:130px}
+  .stats {gap:7px}
+  .stat strong {font-size:21px}
+}
+</style>
 </head>
 <body>
-  <div class="glow"></div>
 
-  <main class="card">
-    <div class="logo">ALAyHiWA</div>
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">✦ ALAyHiWA</a>
+    <nav class="navlinks">
+      <a href="#products">بەرهەمەکان</a>
+      <a href="#about">دەربارە</a>
+      <a href="#contact">پەیوەندی</a>
+    </nav>
+  </div>
+</header>
 
-    <h2>Welcome to My World</h2>
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">✦ فرۆشگای ئۆنلاین • ALAyHiWA</span>
+        <h1>بەرهەمی دڵخوازت<br><span class="gradient-text">بە ئاسانی بدۆزەرەوە</span></h1>
+        <p>فرۆشگایەکی ئۆنلاین بۆ جۆراوجۆر بەرهەم؛ نرخەکان بە دیناری عێراقی نووسراون و دەتوانیت داواکارییەکەت بە واتساپ بنێریت.</p>
+        <div class="actions">
+          <a class="btn primary" href="#products">بینینی بەرهەمەکان ↓</a>
+          <a class="btn secondary" href="https://wa.me/9647501405754" target="_blank" rel="noopener">پەیوەندی بە واتساپ</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit"><span class="main-emoji">🛍️</span></div>
+        <div class="float-card float-one">✨ کوالێتی و شێوازی جوان</div>
+        <div class="float-card float-two">💎 ALAyHiWA Store</div>
+      </div>
+    </div>
+  </section>
 
-    <p>
-      A new beginning. A new vision.<br>
-      Welcome to the official ALAyHiWA website.
-    </p>
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><strong>٦</strong><span>بەرهەمی نموونە</span></div>
+      <div class="stat"><strong>٢٤/٧</strong><span>داواکاری ئۆنلاین</span></div>
+      <div class="stat"><strong>IQD</strong><span>دیناری عێراقی</span></div>
+    </div>
 
-    <a class="button"
-       href="mailto:contact@alayhiwa.com">
-       Contact Me
-    </a>
+    <section id="products">
+      <div class="section-head">
+        <h2>✦ بەرهەمەکان</h2>
+        <p>بەرهەمی دڵخوازت هەڵبژێرە و داوا بکە.</p>
+      </div>
+      <div class="search-row">
+        <input class="search" id="search" type="search" placeholder="🔍 گەڕان بە ناوی بەرهەم..." aria-label="گەڕان بە ناوی بەرهەم">
+      </div>
+      <div class="filters">
+        <button class="filter active" data-category="هەمووی">هەمووی</button>
+        <button class="filter" data-category="ئەلیکترۆنی">ئەلیکترۆنی</button>
+        <button class="filter" data-category="جل‌وبەرگ">جل‌وبەرگ</button>
+        <button class="filter" data-category="گەیمینگ">گەیمینگ</button>
+        <button class="filter" data-category="ماڵەوە">ماڵەوە</button>
+        <button class="filter" data-category="ئاکسسوارات">ئاکسسوارات</button>
+      </div>
 
-    <footer>
-      © 2026 ALAyHiWA. All rights reserved.
-    </footer>
-  </main>
+      <div class="products" id="productList">
+        <article class="product" data-category="ئەلیکترۆنی" data-name="گوێگرەی بلوتوس">
+          <div class="product-visual"><span>🎧</span></div>
+          <div class="product-body">
+            <span class="category">ئەلیکترۆنی</span>
+            <h3>گوێگرەی بلوتوس</h3>
+            <p class="desc">گوێگرەی بێ‌وایەر بۆ مۆسیقا و پەیوەندی.</p>
+            <div class="price">٢٥٬٠٠٠ د.ع</div>
+            <div class="stock">● بەردەست: ١٢</div>
+            <button class="btn primary order" data-product="گوێگرەی بلوتوس" data-price="٢٥٬٠٠٠ د.ع">داواکردن ↗</button>
+          </div>
+        </article>
+
+        <article class="product" data-category="گەیمینگ" data-name="دەسکی یاری">
+          <div class="product-visual"><span>🎮</span></div>
+          <div class="product-body">
+            <span class="category">گەیمینگ</span>
+            <h3>دەسکی یاری</h3>
+            <p class="desc">دەسکی یاری بۆ کاتی خۆشی و یاری.</p>
+            <div class="price">٣٥٬٠٠٠ د.ع</div>
+            <div class="stock">● بەردەست: ٨</div>
+            <button class="btn primary order" data-product="دەسکی یاری" data-price="٣٥٬٠٠٠ د.ع">داواکردن ↗</button>
+          </div>
+        </article>
+
+        <article class="product" data-category="جل‌وبەرگ" data-name="تی‌شێرت">
+          <div class="product-visual"><span>👕</span></div>
+          <div class="product-body">
+            <span class="category">جل‌وبەرگ</span>
+            <h3>تی‌شێرت</h3>
+            <p class="desc">تی‌شێرتی ڕۆژانە بە شێوازی سادە و جوان.</p>
+            <div class="price">١٨٬٠٠٠ د.ع</div>
+            <div class="stock">● بەردەست: ٢٠</div>
+            <button class="btn primary order" data-product="تی‌شێرت" data-price="١٨٬٠٠٠ د.ع">داواکردن ↗</button>
+          </div>
+        </article>
+
+        <article class="product" data-category="ماڵەوە" data-name="چرای مێز">
+          <div class="product-visual"><span>💡</span></div>
+          <div class="product-body">
+            <span class="category">ماڵەوە</span>
+            <h3>چرای مێز</h3>
+            <p class="desc">چرایەکی بچووک بۆ مێزی کار یان خوێندن.</p>
+            <div class="price">٢٠٬٠٠٠ د.ع</div>
+            <div class="stock">● بەردەست: ٦</div>
+            <button class="btn primary order" data-product="چرای مێز" data-price="٢٠٬٠٠٠ د.ع">داواکردن ↗</button>
+          </div>
+        </article>
+
+        <article class="product" data-category="ئاکسسوارات" data-name="کاتژمێری دەست">
+          <div class="product-visual"><span>⌚</span></div>
+          <div class="product-body">
+            <span class="category">ئاکسسوارات</span>
+            <h3>کاتژمێری دەست</h3>
+            <p class="desc">کاتژمێرێکی شیک بۆ بەکارهێنانی ڕۆژانە.</p>
+            <div class="price">٣٠٬٠٠٠ د.ع</div>
+            <div class="stock">● بەردەست: ٤</div>
+            <button class="btn primary order" data-product="کاتژمێری دەست" data-price="٣٠٬٠٠٠ د.ع">داواکردن ↗</button>
+          </div>
+        </article>
+
+        <article class="product" data-category="ئەلیکترۆنی" data-name="پاوەربانک">
+          <div class="product-visual"><span>🔋</span></div>
+          <div class="product-body">
+            <span class="category">ئەلیکترۆنی</span>
+            <h3>پاوەربانک</h3>
+            <p class="desc">پاوەربانک بۆ شارژکردنی مۆبایل لە دەرەوە.</p>
+            <div class="price">٢٢٬٠٠٠ د.ع</div>
+            <div class="stock">● بەردەست: ١٠</div>
+            <button class="btn primary order" data-product="پاوەربانک" data-price="٢٢٬٠٠٠ د.ع">داواکردن ↗</button>
+          </div>
+        </article>
+      </div>
+      <p class="empty" id="empty" hidden>هیچ بەرهەمێک نەدۆزرایەوە.</p>
+      <div class="note">تێبینی: ئەم بەرهەمانە، نرخ و ژمارەی بەردەست نموونەیین. پێش فرۆشتنی ڕاستەقینە، زانیارییەکان بەپێی بەرهەمەکانت بگۆڕە.</div>
+    </section>
+
+    <section id="about" style="padding-top:65px">
+      <div class="section-head">
+        <h2>✦ چۆن داوا بکەیت؟</h2>
+        <p>بە سێ هەنگاوی ئاسان.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">١</div>
+          <h3>بەرهەم هەڵبژێرە</h3>
+          <p>لە لیستی بەرهەمەکاندا ئەو شتە بدۆزەرەوە کە دەتەوێت.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">٢</div>
+          <h3>داواکردن دابگرە</h3>
+          <p>واتساپ بە پەیامی ئامادەکراوی بەرهەمەکە دەکرێتەوە.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">٣</div>
+          <h3>داواکارییەکەت پشتڕاست بکەرەوە</h3>
+          <p>نرخ، ژمارە و شوێنی گەیاندن لەگەڵ فرۆشیار ڕێک بخە.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <span class="eyebrow">💬 هەمیشە لە خزمەتتداین</span>
+        <h2>پەیوەندی بە فرۆشیارەوە</h2>
+        <p>بۆ پرسیار و داواکاری، ڕاستەوخۆ پەیوەندیمان پێوە بکە.</p>
+        <span class="phone">+964 750 140 5754</span>
+        <a class="btn whatsapp" href="https://wa.me/9647501405754" target="_blank" rel="noopener">کردنەوەی واتساپ ↗</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="container">دروستکراوە بە خۆشەویستی بۆ <strong>ALAyHiWA</strong> © 2026</div>
+</footer>
+
+<a class="floating-wa" href="https://wa.me/9647501405754" target="_blank" rel="noopener">واتساپ ✆</a>
+
+<script>
+const filters = document.querySelectorAll(".filter");
+const products = document.querySelectorAll(".product");
+const search = document.getElementById("search");
+const empty = document.getElementById("empty");
+let activeCategory = "هەمووی";
+
+function showProducts() {
+  const term = search.value.trim().toLowerCase();
+  let count = 0;
+  products.forEach(product => {
+    const matchesCategory = activeCategory === "هەمووی" ||
+      product.dataset.category === activeCategory;
+    const matchesSearch = product.dataset.name.toLowerCase().includes(term);
+    const visible = matchesCategory && matchesSearch;
+    product.hidden = !visible;
+    if (visible) count++;
+  });
+  empty.hidden = count !== 0;
+}
+
+filters.forEach(button => {
+  button.addEventListener("click", () => {
+    filters.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    activeCategory = button.dataset.category;
+    showProducts();
+  });
+});
+
+search.addEventListener("input", showProducts);
+
+document.querySelectorAll(".order").forEach(button => {
+  button.addEventListener("click", () => {
+    const product = button.dataset.product;
+    const price = button.dataset.price;
+    const message = `سڵاو، دەمەوێت داواکردن بکەم:\nبەرهەم: ${product}\nنرخ: ${price}\nتکایە زانیاری زیاتر بدەن.`;
+    const url = "https://wa.me/9647501405754?text=" +
+      encodeURIComponent(message);
+    window.open(url, "_blank", "noopener");
+  });
+});
+</script>
+
 </body>
 </html>
