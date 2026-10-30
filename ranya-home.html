@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranya Guide | ڕێبەری ڕانیە</title>
+<meta name="description" content="ڕێبەری ڕانیە، شوێنە گەشتیارییەکان، کافێ، چێشتخانە و هۆتێلەکان.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--dark:#102a2a;--green:#176b55;--gold:#e6b66b;--light:#f5f6f1}
+body{font-family:Arial,sans-serif;background:var(--light);color:#20312e}
+header{background:#102a2a;color:white;padding:18px 7%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:bold}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+button,select{cursor:pointer;font:inherit}
+.lang{background:var(--gold);border:0;border-radius:20px;padding:9px 15px;font-weight:bold}
+.hero{min-height:480px;background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.12)),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1800') center/cover;display:flex;align-items:center;color:white;padding:60px 8%}
+.hero-content{max-width:650px}
+.hero h1{font-size:clamp(38px,6vw,65px);margin-bottom:18px}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:18px;line-height:1.9;margin-bottom:25px}
+.search{display:flex;max-width:530px;background:white;padding:7px;border-radius:12px;gap:8px}
+.search input{border:0;outline:0;flex:1;min-width:0;padding:12px;font-size:15px}
+.search button{border:0;background:var(--green);color:white;padding:12px 20px;border-radius:8px}
+.section{padding:65px 7%}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title h2{font-size:30px;color:var(--dark);margin-bottom:10px}
+.section-title p{color:#71817a;line-height:1.8}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:15px}
+.category{background:white;padding:23px 10px;border-radius:15px;text-align:center;box-shadow:0 4px 18px #102a2a0b;cursor:pointer;border:1px solid #e9eee9;transition:.2s}
+.category:hover{transform:translateY(-5px);border-color:var(--gold)}
+.category .emoji{font-size:32px;margin-bottom:10px}
+.category h3{font-size:16px}
+.places{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.place{background:white;border-radius:16px;overflow:hidden;box-shadow:0 5px 20px #102a2a12;transition:.2s}
+.place:hover{transform:translateY(-5px)}
+.place img{width:100%;height:195px;object-fit:cover;display:block;background:#ddd}
+.place-body{padding:18px}
+.place-body h3{font-size:19px;margin-bottom:9px}
+.place-body p{font-size:14px;line-height:1.8;color:#687871;min-height:48px}
+.tag{display:inline-block;background:#eaf4ee;color:var(--green);padding:5px 10px;border-radius:20px;font-size:12px;margin-bottom:12px}
+.map-link{display:inline-block;margin-top:14px;background:var(--green);color:white;text-decoration:none;padding:10px 16px;border-radius:8px;font-size:13px}
+.about{background:var(--dark);color:white;text-align:center;padding:65px 8%}
+.about h2{font-size:30px;margin-bottom:15px;color:var(--gold)}
+.about p{max-width:750px;margin:auto;line-height:2;color:#e2eae5}
+footer{background:#0b2020;color:#d7e1dc;text-align:center;padding:25px;font-size:13px;line-height:2}
+.empty{text-align:center;grid-column:1/-1;padding:30px;color:#687871}
+@media(max-width:650px){
+header{justify-content:center}
+nav{justify-content:center;gap:12px}
+.hero{min-height:410px;padding:45px 6%}
+.hero p{font-size:16px}
+.section{padding:45px 5%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Ranya <span>Guide</span> 🌿</div>
+  <nav>
+    <a href="#home" data-ku="سەرەتا" data-en="Home">سەرەتا</a>
+    <a href="#categories" data-ku="بەشەکان" data-en="Categories">بەشەکان</a>
+    <a href="#places" data-ku="شوێنەکان" data-en="Places">شوێنەکان</a>
+    <a href="#about" data-ku="دەربارە" data-en="About">دەربارە</a>
+    <button class="lang" id="langBtn" onclick="toggleLang()">English</button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1 id="heroTitle">ڕانیە <span>بناسەوە</span></h1>
+    <p id="heroText">گەشتێک بکە بۆ جوانترین شوێنەکانی ڕانیە. شوێنەکان بدۆزەرەوە و جوانیی ئەم شارە بناسە.</p>
+    <div class="search">
+      <input id="searchInput" placeholder="بەدوای شوێنێکدا بگەڕێ..." oninput="renderPlaces()">
+      <button onclick="renderPlaces()" id="searchBtn">گەڕان</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="section-title">
+    <h2 id="catTitle">شوێنەکان بە پێی جۆر</h2>
+    <p id="catSub">ئەو شوێنەی دەتەوێت بە ئاسانی بدۆزەرەوە</p>
+  </div>
+  <div class="categories" id="categoryList"></div>
+</section>
+
+<section class="section" id="places">
+  <div class="section-title">
+    <h2 id="placesTitle">شوێنە ناسراوەکانی ڕانیە</h2>
+    <p id="placesSub">شوێنەکان ببینە و بۆ سەردانیان ئامادەبە</p>
+  </div>
+  <div class="places" id="placesList"></div>
+</section>
+
+<section class="about" id="about">
+  <h2 id="aboutTitle">دەربارەی Ranya Guide</h2>
+  <p id="aboutText">ئەم وێبسایتە بۆ ناساندنی شاری جوانی ڕانیە دروست کراوە، بۆ ئەوەی میوان و گەشتیاران بتوانن شوێنە جوانەکان، خزمەتگوزارییەکان و بازاڕەکانی شارەکە بدۆزنەوە.</p>
+</section>
+
+<footer>
+  <div>Ranya Guide | ڕێبەری ڕانیە</div>
+  <div id="footerText">ڕانیە، شارێکی جوان لە دڵی کوردستان ❤️</div>
+  <div>© 2026 Ranya Guide</div>
+</footer>
+
+<script>
+// شوێنەکان لێرە زیاد بکە؛ تەنها خۆت کۆدەکە دەستکاری دەکەیت.
+const places = [
+ {
+  name:"شوێنی گەشتیاری ١",
+  en:"Tourist Place 1",
+  category:"tourism",
+  desc:"وێنە و زانیاریی شوێنەکە لێرە زیاد دەکرێت.",
+  enDesc:"Add the place photo and description here.",
+  image:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=700",
+  map:"Ranya Kurdistan Iraq"
+ },
+ {
+  name:"کافێی نموونە",
+  en:"Sample Cafe",
+  category:"cafe",
+  desc:"زانیاریی کافێ و ناونیشانەکە لێرە بنووسە.",
+  enDesc:"Write the cafe information and address here.",
+  image:"https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700",
+  map:"Ranya Kurdistan Iraq"
+ },
+ {
+  name:"چێشتخانەی نموونە",
+  en:"Sample Restaurant",
+  category:"restaurant",
+  desc:"زانیاریی چێشتخانەکە لێرە بنووسە.",
+  enDesc:"Write the restaurant information here.",
+  image:"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700",
+  map:"Ranya Kurdistan Iraq"
+ },
+ {
+  name:"هۆتێلی نموونە",
+  en:"Sample Hotel",
+  category:"hotel",
+  desc:"ناونیشان و زانیاریی هۆتێلەکە لێرە زیاد بکە.",
+  enDesc:"Add hotel information and address here.",
+  image:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700",
+  map:"Ranya Kurdistan Iraq"
+ },
+ {
+  name:"بازاڕی نموونە",
+  en:"Sample Market",
+  category:"shopping",
+  desc:"زانیاریی بازاڕ و دوکانەکان لێرە بنووسە.",
+  enDesc:"Add market and shop information here.",
+  image:"https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=700",
+  map:"Ranya Kurdistan Iraq"
+ }
+];
+
+const categories = [
+ {id:"all",emoji:"🌍",ku:"هەموو شوێنەکان",en:"All Places"},
+ {id:"tourism",emoji:"🏞️",ku:"گەشتیاری",en:"Tourism"},
+ {id:"cafe",emoji:"☕",ku:"کافێ",en:"Cafes"},
+ {id:"restaurant",emoji:"🍽️",ku:"چێشتخانە",en:"Restaurants"},
+ {id:"hotel",emoji:"🏨",ku:"هۆتێل",en:"Hotels"},
+ {id:"shopping",emoji:"🛍️",ku:"بازاڕ",en:"Shopping"}
+];
+
+let language="ku";
+let selectedCategory="all";
+
+function toggleLang(){
+ language=language==="ku"?"en":"ku";
+ document.documentElement.lang=language;
+ document.documentElement.dir=language==="ku"?"rtl":"ltr";
+ document.getElementById("langBtn").textContent=language==="ku"?"English":"کوردی";
+ document.getElementById("heroTitle").innerHTML=language==="ku"?'ڕانیە <span>بناسەوە</span>':'Discover <span>Ranya</span>';
+ document.getElementById("heroText").textContent=language==="ku"?"گەشتێک بکە بۆ جوانترین شوێنەکانی ڕانیە. شوێنەکان بدۆزەرەوە و جوانیی ئەم شارە بناسە.":"Explore the beautiful places of Ranya. Discover the city and find places to visit.";
+ document.getElementById("searchInput").placeholder=language==="ku"?"بەدوای شوێنێکدا بگەڕێ...":"Search for a place...";
+ document.getElementById("searchBtn").textContent=language==="ku"?"گەڕان":"Search";
+ document.getElementById("catTitle").textContent=language==="ku"?"شوێنەکان بە پێی جۆر":"Explore Categories";
+ document.getElementById("catSub").textContent=language==="ku"?"ئەو شوێنەی دەتەوێت بە ئاسانی بدۆزەرەوە":"Find the category you want";
+ document.getElementById("placesTitle").textContent=language==="ku"?"شوێنە ناسراوەکانی ڕانیە":"Places in Ranya";
+ document.getElementById("placesSub").textContent=language==="ku"?"شوێنەکان ببینە و بۆ سەردانیان ئامادەبە":"Discover places and plan your visit";
+ document.getElementById("aboutTitle").textContent=language==="ku"?"دەربارەی Ranya Guide":"About Ranya Guide";
+ document.getElementById("aboutText").textContent=language==="ku"?"ئەم وێبسایتە بۆ ناساندنی شاری جوانی ڕانیە دروست کراوە، بۆ ئەوەی میوان و گەشتیاران بتوانن شوێنە جوانەکان، خزمەتگوزارییەکان و بازاڕەکانی شارەکە بدۆزنەوە.":"This website introduces the beautiful city of Ranya and helps visitors discover its attractions, services and markets.";
+ document.getElementById("footerText").textContent=language==="ku"?"ڕانیە، شارێکی جوان لە دڵی کوردستان ❤️":"Ranya, a beautiful city in the heart of Kurdistan ❤️";
+ document.querySelectorAll("nav a").forEach(a=>a.textContent=a.dataset[language]);
+ renderCategories();
+ renderPlaces();
+}
+
+function renderCategories(){
+ document.getElementById("categoryList").innerHTML=categories.map(c=>
+ `<div class="category" onclick="chooseCategory('${c.id}')">
+ <div class="emoji">${c.emoji}</div><h3>${c[language]}</h3></div>`
+ ).join("");
+}
+
+function chooseCategory(id){
+ selectedCategory=id;
+ document.getElementById("places").scrollIntoView({behavior:"smooth"});
+ renderPlaces();
+}
+
+function renderPlaces(){
+ const query=document.getElementById("searchInput").value.trim().toLowerCase();
+ const list=places.filter(p=>{
+ const matchesCategory=selectedCategory==="all"||p.category===selectedCategory;
+ const matchesSearch=(p.name+" "+p.en+" "+p.desc+" "+p.enDesc).toLowerCase().includes(query);
+ return matchesCategory&&matchesSearch;
+ });
+ document.getElementById("placesList").innerHTML=list.length?list.map(p=>
+ `<article class="place">
+ <img src="${p.image}" alt="${language==="ku"?p.name:p.en}" loading="lazy">
+ <div class="place-body">
+ <span class="tag">${categories.find(c=>c.id===p.category)?.[language]||p.category}</span>
+ <h3>${language==="ku"?p.name:p.en}</h3>
+ <p>${language==="ku"?p.desc:p.enDesc}</p>
+ <a class="map-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.map)}">${language==="ku"?"📍 بینینی شوێن لە نەخشە":"📍 View on Map"}</a>
+ </div></article>`
+ ).join(""):`<div class="empty">${language==="ku"?"هیچ شوێنێک نەدۆزرایەوە.":"No places found."}</div>`;
+}
+
+renderCategories();
+renderPlaces();
+</script>
+</body>
+</html>
