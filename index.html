@@ -1,42 +1,677 @@
+
+
 <!doctype html>
+
 <html lang="ckb" dir="rtl">
+
 <head>
+
 <meta charset="utf-8">
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <meta name="theme-color" content="#080b1a">
+
 <title>ALAyHiWA | فرۆشگای ئۆنلاین</title>
+
 <style>
-:root{--bg:#080b1a;--card:#171f3b;--blue:#63d5ff;--purple:#9b83ff;--muted:#b3bdd8;--green:#25d366}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 5%,#30216a88,transparent 35%),radial-gradient(ellipse at 90% 35%,#064e7180,transparent 32%),var(--bg);color:#f7f8ff;font:16px Arial,Tahoma;line-height:1.8}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,92%);margin:auto}header{position:sticky;top:0;background:#080b1add;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff18;z-index:4}.nav{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:12px 0;flex-wrap:wrap}.logo{font-size:25px;font-weight:bold;color:var(--blue)}.links{display:flex;gap:16px;flex-wrap:wrap}.hero{padding:65px 0}.heroGrid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:25px}.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.35}.grad{background:linear-gradient(90deg,var(--blue),#ff9bda);color:transparent;background-clip:text}.muted,.desc{color:var(--muted)}.btn{border:1px solid #ffffff2a;border-radius:11px;padding:9px 15px;background:#ffffff0d;color:white;display:inline-block}.primary{background:linear-gradient(90deg,var(--blue),#a797ff);color:#08101c;border:0;font-weight:bold}.green{background:var(--green);color:#062a15;border:0}.panel,.product,.stat{background:linear-gradient(145deg,#1c2442dc,#10152be8);border:1px solid #ffffff19;border-radius:17px;padding:17px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:15px 0 45px}.stat{text-align:center}.stat b{display:block;color:var(--blue);font-size:23px}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.product{padding:0;overflow:hidden}.visual{height:140px;display:grid;place-items:center;font-size:60px;background:linear-gradient(135deg,#182c49,#211b42)}.pbody{padding:15px}.price{color:#a7f3d0;font-size:20px;font-weight:bold}.field{width:100%;padding:11px;margin:5px 0;border-radius:10px;border:1px solid #ffffff2a;background:#080d20;color:white}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.filters button{border-radius:20px;padding:7px 13px;background:#ffffff0d;color:white;border:1px solid #ffffff22}.filters .active{background:var(--blue);color:#08101c}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.admin{padding:35px 0}.row{padding:12px;margin:8px 0;border:1px solid #ffffff20;border-radius:12px;background:#ffffff09;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.hidden{display:none!important}.toast{position:fixed;top:80px;right:4%;z-index:10;background:#172442;padding:12px 18px;border:1px solid var(--blue);border-radius:10px}.small{font-size:12px;color:var(--muted)}footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid #ffffff18;margin-top:40px}@media(max-width:750px){.heroGrid{grid-template-columns:1fr;text-align:center}.products{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.nav{justify-content:center}}@media(max-width:390px){.products{grid-template-columns:1fr}}
+
+:root{--bg:#080b1a;--card:#171f3b;--blue:#63d5ff;--purple:#9b83ff;--muted:#b3bdd8;--green:#25d366}
+
+*{box-sizing:border-box}
+
+body{margin:0;background:radial-gradient(ellipse at 10% 5%,#30216a88,transparent 35%),radial-gradient(ellipse at 90% 35%,#064e7180,transparent 32%),var(--bg);color:#f7f8ff;font:16px Arial,Tahoma;line-height:1.8}
+
+a{color:inherit;text-decoration:none}
+
+button,input,textarea,select{font:inherit}
+
+button{cursor:pointer}
+
+.wrap{width:min(1120px,92%);margin:auto}
+
+header{position:sticky;top:0;background:#080b1add;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff18;z-index:4}
+
+.nav{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:12px 0;flex-wrap:wrap}
+
+.logo{font-size:25px;font-weight:bold;color:var(--blue)}
+
+.links{display:flex;gap:16px;flex-wrap:wrap}
+
+.hero{padding:65px 0}
+
+.heroGrid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:25px}
+
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.35}
+
+.grad{background:linear-gradient(90deg,var(--blue),#ff9bda);color:transparent;background-clip:text}
+
+.muted,.desc{color:var(--muted)}
+
+.btn{border:1px solid #ffffff2a;border-radius:11px;padding:9px 15px;background:#ffffff0d;color:white;display:inline-block}
+
+.primary{background:linear-gradient(90deg,var(--blue),#a797ff);color:#08101c;border:0;font-weight:bold}
+
+.green{background:var(--green);color:#062a15;border:0}
+
+.panel,.product,.stat{background:linear-gradient(145deg,#1c2442dc,#10152be8);border:1px solid #ffffff19;border-radius:17px;padding:17px}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:15px 0 45px}
+
+.stat{text-align:center}
+
+.stat b{display:block;color:var(--blue);font-size:23px}
+
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+
+.product{padding:0;overflow:hidden}
+
+.visual{height:140px;display:grid;place-items:center;font-size:60px;background:linear-gradient(135deg,#182c49,#211b42)}
+
+.pbody{padding:15px}
+
+.price{color:#a7f3d0;font-size:20px;font-weight:bold}
+
+.field{width:100%;padding:11px;margin:5px 0;border-radius:10px;border:1px solid #ffffff2a;background:#080d20;color:white}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+
+.filters button{border-radius:20px;padding:7px 13px;background:#ffffff0d;color:white;border:1px solid #ffffff22}
+
+.filters .active{background:var(--blue);color:#08101c}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.admin{padding:35px 0}
+
+.row{padding:12px;margin:8px 0;border:1px solid #ffffff20;border-radius:12px;background:#ffffff09;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+
+.hidden{display:none!important}
+
+.toast{position:fixed;top:80px;right:4%;z-index:10;background:#172442;padding:12px 18px;border:1px solid var(--blue);border-radius:10px}
+
+.small{font-size:12px;color:var(--muted)}
+
+footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid #ffffff18;margin-top:40px}
+
+@media(max-width:750px){.heroGrid{grid-template-columns:1fr;text-align:center}.products{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.nav{justify-content:center}}
+
+@media(max-width:390px){.products{grid-template-columns:1fr}}
+
 </style>
+
 </head>
+
 <body>
-<header><div class="wrap nav"><a class="logo" href="#">✦ ALAyHiWA</a><nav class="links"><a href="#products">بەرهەمەکان</a><a href="#contact">پەیوەندی</a><a href="#admin">بەڕێوەبەر</a></nav></div></header>
+
+<header>
+
+<div class="wrap nav">
+
+<a class="logo" href="#">✦ ALAyHiWA</a>
+
+<nav class="links">
+
+<a href="#products">بەرهەمەکان</a>
+
+<a href="#contact">پەیوەندی</a>
+
+</nav>
+
+</div>
+
+</header>
+
 <main class="wrap">
-<section class="hero"><div class="heroGrid"><div><span class="muted">✦ فرۆشگای ئۆنلاین</span><h1>بەرهەمی دڵخوازت<br><span class="grad">بە ئاسانی بدۆزەرەوە</span></h1><p class="muted">فرۆشگای ALAyHiWA؛ بەرهەمەکان ببینە و داواکارییەکەت بە ئاسانی بنێرە.</p><a class="btn primary" href="#products">بینینی بەرهەمەکان ↓</a></div><div style="text-align:center;font-size:110px">🛍️</div></div></section>
-<div class="stats"><div class="stat"><b id="count">٠</b>بەرهەم</div><div class="stat"><b>٢٤/٧</b>داواکاری</div><div class="stat"><b>IQD</b>دیناری عێراقی</div></div>
-<section id="products"><h2>✦ بەرهەمەکان</h2><input id="search" class="field" placeholder="گەڕان بە ناوی بەرهەم..."><div id="filters" class="filters"></div><div id="productsList" class="products">بارکردنی بەرهەمەکان...</div></section>
-<section id="contact" class="panel" style="text-align:center;margin-top:45px"><h2>پەیوەندی بە فرۆشیارەوە</h2><p class="muted">+964 750 140 5754</p><a class="btn green" href="https://wa.me/9647501405754">واتساپ</a></section>
+
+<section class="hero">
+
+<div class="heroGrid">
+
+<div>
+
+<span class="muted">✦ فرۆشگای ئۆنلاین</span>
+
+<h1>بەرهەمی دڵخوازت<br><span class="grad">بە ئاسانی بدۆزەرەوە</span></h1>
+
+<p class="muted">فرۆشگای ALAyHiWA؛ بەرهەمەکان ببینە و داواکارییەکەت بە ئاسانی بنێرە.</p>
+
+<a class="btn primary" href="#products">بینینی بەرهەمەکان ↓</a>
+
+</div>
+
+<div style="text-align:center;font-size:110px">🛍️</div>
+
+</div>
+
+</section>
+
+<div class="stats">
+
+<div class="stat"><b id="count">٠</b>بەرهەم</div>
+
+<div class="stat"><b>٢٤/٧</b>داواکاری</div>
+
+<div class="stat"><b>IQD</b>دیناری عێراقی</div>
+
+</div>
+
+<section id="products">
+
+<h2>✦ بەرهەمەکان</h2>
+
+<input id="search" class="field" placeholder="گەڕان بە ناوی بەرهەم...">
+
+<div id="filters" class="filters"></div>
+
+<div id="productsList" class="products">بارکردنی بەرهەمەکان...</div>
+
+</section>
+
+<section id="contact" class="panel" style="text-align:center;margin-top:45px">
+
+<h2>پەیوەندی بە فرۆشیارەوە</h2>
+
+<p class="muted">+964 750 140 5754</p>
+
+<a class="btn green" href="https://wa.me/9647501405754">واتساپ</a>
+
+</section>
+
 </main>
-<section id="admin" class="wrap admin"><h2>✦ بەڕێوەبردنی فرۆشگا</h2><div class="panel" id="login"><h3>چوونەژوورەوەی بەڕێوەبەر</h3><form id="loginForm"><input class="field" id="email" type="email" placeholder="ئیمەیڵ" required><input class="field" id="password" type="password" placeholder="وشەی نهێنی" required><button class="btn primary">چوونەژوورەوە</button></form><p class="small">alayhiwa10@gmail.com</p></div>
-<div id="dash" class="hidden"><div class="row"><b>بەڕێوەبردنی ALAyHiWA</b><button class="btn" id="logout">چوونەدەرەوە</button></div><div class="stats"><div class="stat"><b id="nProducts">0</b>بەرهەم</div><div class="stat"><b id="nOrders">0</b>داواکاری</div><div class="stat"><b id="revenue">0</b>کۆی فرۆشتن (د.ع)</div></div>
-<div class="panel"><h3 id="formTitle">زیادکردنی بەرهەم</h3><form id="productForm"><input type="hidden" id="pid"><div class="grid"><input class="field" id="name" placeholder="ناوی بەرهەم" required><input class="field" id="category" placeholder="بەش / جۆر" required><input class="field" id="price" type="number" min="0" placeholder="نرخ بە دینار" required><input class="field" id="stock" type="number" min="0" placeholder="کۆگا" required><input class="field" id="emoji" placeholder="هێما، وەک 🎧" value="📦"><input class="field" id="image" placeholder="لینکی وێنە (ئارەزوومەندانە)"></div><textarea class="field" id="description" placeholder="وردەکاری"></textarea><button class="btn primary">پاشەکەوتکردن</button><button type="button" class="btn" id="clear">پاککردنەوە</button></form></div>
-<div class="panel"><h3>بەرهەمەکان و کۆگا</h3><div id="manageProducts"></div></div><div class="panel"><h3>داواکارییەکان</h3><div id="orders"></div></div></div></section>
-<div id="toast" class="toast hidden"></div><footer>دروستکراوە بە خۆشەویستی بۆ ALAyHiWA © 2026</footer>
+
+<section id="admin" class="wrap admin hidden">
+
+<h2>✦ بەڕێوەبردنی فرۆشگا</h2>
+
+<div class="panel" id="login">
+
+<h3>چوونەژوورەوەی بەڕێوەبەر</h3>
+
+<form id="loginForm">
+
+<input class="field" id="email" type="email" placeholder="ئیمەیڵ" required>
+
+<input class="field" id="password" type="password" placeholder="وشەی نهێنی" required>
+
+<button class="btn primary">چوونەژوورەوە</button>
+
+</form>
+
+</div>
+
+<div id="dash" class="hidden">
+
+<div class="row">
+
+<b>بەڕێوەبردنی ALAyHiWA</b>
+
+<button class="btn" id="logout">چوونەدەرەوە</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat"><b id="nProducts">0</b>بەرهەم</div>
+
+<div class="stat"><b id="nOrders">0</b>داواکاری</div>
+
+<div class="stat"><b id="revenue">0</b>کۆی فرۆشتن (د.ع)</div>
+
+</div>
+
+<div class="panel">
+
+<h3 id="formTitle">زیادکردنی بەرهەم</h3>
+
+<form id="productForm">
+
+<input type="hidden" id="pid">
+
+<div class="grid">
+
+<input class="field" id="name" placeholder="ناوی بەرهەم" required>
+
+<input class="field" id="category" placeholder="بەش / جۆر" required>
+
+<input class="field" id="price" type="number" min="0" placeholder="نرخ بە دینار" required>
+
+<input class="field" id="stock" type="number" min="0" placeholder="کۆگا" required>
+
+<input class="field" id="emoji" placeholder="هێما، وەک 🎧" value="📦">
+
+<input class="field" id="image" placeholder="لینکی وێنە (ئارەزوومەندانە)">
+
+</div>
+
+<textarea class="field" id="description" placeholder="وردەکاری"></textarea>
+
+<button class="btn primary">پاشەکەوتکردن</button>
+
+<button type="button" class="btn" id="clear">پاککردنەوە</button>
+
+</form>
+
+</div>
+
+<div class="panel">
+
+<h3>بەرهەمەکان و کۆگا</h3>
+
+<div id="manageProducts"></div>
+
+</div>
+
+<div class="panel">
+
+<h3>داواکارییەکان</h3>
+
+<div id="orders"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<div id="toast" class="toast hidden"></div>
+
+<footer>دروستکراوە بە خۆشەویستی بۆ ALAyHiWA © 2026</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-const URL="https://wcxzsxamdqftrghssqyw.supabase.co",KEY="sb_publishable_VGLxEMid0yawqJh6ZoU3lQ_CwauaQjw",ADMIN="8756074d-75e2-4c72-a2b6-0e79b496e714",db=supabase.createClient(URL,KEY);
-let products=[],category="هەمووی";const $=x=>document.getElementById(x),fmt=n=>Number(n||0).toLocaleString("en-US")+" د.ع",esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function msg(t){$("toast").textContent=t;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),3500)}
-async function loadProducts(){let {data,error}=await db.from("products").select("id,name,description,price,stock,image_url,category,emoji").order("created_at",{ascending:false});if(error){$("productsList").textContent="هەڵە لە بارکردنی بەرهەمەکان؛ SQL setup پێویستە.";return}products=data||[];$("count").textContent=products.length;render()}
-function render(){let cats=["هەمووی",...new Set(products.map(p=>p.category).filter(Boolean))];$("filters").innerHTML=cats.map(c=>`<button class="${c===category?"active":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");$("filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{category=b.dataset.c;render()});let term=$("search").value.toLowerCase();let list=products.filter(p=>(category==="هەمووی"||p.category===category)&&(`${p.name} ${p.description} ${p.category}`).toLowerCase().includes(term));$("productsList").innerHTML=list.map(p=>`<article class="product"><div class="visual">${p.image_url?`<img src="${esc(p.image_url)}" style="max-height:125px;max-width:90%">`:esc(p.emoji||"📦")}</div><div class="pbody"><small>${esc(p.category)}</small><h3>${esc(p.name)}</h3><p class="desc">${esc(p.description)}</p><div class="price">${fmt(p.price)}</div><p class="small">${p.stock>0?"بەردەست: "+p.stock:"تەواو بووە"}</p><button class="btn primary" data-order="${p.id}" ${p.stock<1?"disabled":""}>داواکردن</button></div></article>`).join("")||"هیچ بەرهەمێک نییە";$("productsList").querySelectorAll("[data-order]").forEach(b=>b.onclick=()=>order(+b.dataset.order))}
+
+const URL="https://wcxzsxamdqftrghssqyw.supabase.co",
+
+KEY="sb_publishable_VGLxEMid0yawqJh6ZoU3lQ_CwauaQjw",
+
+ADMIN="8756074d-75e2-4c72-a2b6-0e79b496e714",
+
+db=supabase.createClient(URL,KEY);
+
+let products=[],category="هەمووی";
+
+const $=x=>document.getElementById(x),
+
+fmt=n=>Number(n||0).toLocaleString("en-US")+" د.ع",
+
+esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function msg(t){
+
+$("toast").textContent=t;
+
+$("toast").classList.remove("hidden");
+
+setTimeout(()=>$("toast").classList.add("hidden"),3500)
+
+}
+
+async function loadProducts(){
+
+let {data,error}=await db.from("products")
+
+.select("id,name,description,price,stock,image_url,category,emoji")
+
+.order("created_at",{ascending:false});
+
+if(error){
+
+$("productsList").textContent="هەڵە لە بارکردنی بەرهەمەکان؛ SQL setup پێویستە.";
+
+return
+
+}
+
+products=data||[];
+
+$("count").textContent=products.length;
+
+render()
+
+}
+
+function render(){
+
+let cats=["هەمووی",...new Set(products.map(p=>p.category).filter(Boolean))];
+
+$("filters").innerHTML=cats.map(c=>`<button class="${c===category?"active":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+
+$("filters").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+
+category=b.dataset.c;
+
+render()
+
+});
+
+let term=$("search").value.toLowerCase();
+
+let list=products.filter(p=>(category==="هەمووی"||p.category===category)&&(`${p.name} ${p.description} ${p.category}`).toLowerCase().includes(term));
+
+$("productsList").innerHTML=list.map(p=>`
+
+<article class="product">
+
+<div class="visual">${p.image_url?`<img src="${esc(p.image_url)}" style="max-height:125px;max-width:90%">`:esc(p.emoji||"📦")}</div>
+
+<div class="pbody">
+
+<small>${esc(p.category)}</small>
+
+<h3>${esc(p.name)}</h3>
+
+<p class="desc">${esc(p.description)}</p>
+
+<div class="price">${fmt(p.price)}</div>
+
+<p class="small">${p.stock>0?"بەردەست: "+p.stock:"تەواو بووە"}</p>
+
+<button class="btn primary" data-order="${p.id}" ${p.stock<1?"disabled":""}>داواکردن</button>
+
+</div>
+
+</article>`).join("")||"هیچ بەرهەمێک نییە";
+
+$("productsList").querySelectorAll("[data-order]").forEach(b=>b.onclick=()=>order(+b.dataset.order))
+
+}
+
 $("search").oninput=render;
-async function order(id){let p=products.find(x=>x.id===id),q=Number(prompt("چەند دانە؟", "1"));if(!Number.isInteger(q)||q<1||q>p.stock)return msg("ژمارەی دانە دروست نییە.");let n=prompt("ناوی کڕیار:");if(!n?.trim())return;let phone=prompt("ژمارەی مۆبایل:");if(!phone?.trim())return;let address=prompt("ناونیشانی گەیاندن (ئارەزوومەندانە):")||"";let {data,error}=await db.rpc("place_order",{p_customer_name:n,p_phone:phone,p_address:address,p_items:[{product_id:id,quantity:q}]});if(error){console.error(error);return msg("داواکاری نەکرا؛ دووبارە هەوڵ بدەرەوە.")}msg("داواکاری تۆمار کرا! ژمارە: "+data);window.open("https://wa.me/9647501405754?text="+encodeURIComponent(`سڵاو، داواکاری #${data}\n${p.name} × ${q}\nکڕیار: ${n}\nمۆبایل: ${phone}\nناونیشان: ${address}\nکۆ: ${fmt(p.price*q)}`),"_blank");loadProducts()}
-async function session(){let {data:{session}}=await db.auth.getSession(),ok=session?.user.id===ADMIN;$("login").classList.toggle("hidden",!!ok);$("dash").classList.toggle("hidden",!ok);if(session&&!ok){await db.auth.signOut();msg("ئەم هەژمارە دەسەڵاتی بەڕێوەبەری نییە")}if(ok)await dashboard()}
-$("loginForm").onsubmit=async e=>{e.preventDefault();let {data,error}=await db.auth.signInWithPassword({email:$("email").value,password:$("password").value});if(error)return msg("ئیمەیڵ یان وشەی نهێنی هەڵەیە");if(data.user.id!==ADMIN){await db.auth.signOut();return msg("ئەم هەژمارە ڕێگەپێدراو نییە")}session()};
-$("logout").onclick=async()=>{await db.auth.signOut();session()};$("clear").onclick=()=>{$("productForm").reset();$("pid").value="";$("formTitle").textContent="زیادکردنی بەرهەم"};
-$("productForm").onsubmit=async e=>{e.preventDefault();let row={name:$("name").value.trim(),category:$("category").value.trim(),price:+$("price").value,stock:+$("stock").value,emoji:$("emoji").value||"📦",image_url:$("image").value.trim(),description:$("description").value.trim()};let id=$("pid").value;let {error}=id?await db.from("products").update(row).eq("id",id):await db.from("products").insert(row);if(error){console.error(error);return msg("هەڵە لە پاشەکەوتکردن")}msg("بەرهەم پاشەکەوت کرا");$("clear").click();dashboard()};
-async function dashboard(){await loadProducts();let [{data:os,error}, {count}]=await Promise.all([db.from("orders").select("*").order("created_at",{ascending:false}),db.from("products").select("*",{count:"exact",head:true})]);if(error)return msg("داواکارییەکان نەهاتن");$("nProducts").textContent=count||0;$("nOrders").textContent=os.length;$("revenue").textContent=fmt(os.reduce((s,o)=>s+Number(o.total),0));$("manageProducts").innerHTML=products.map(p=>`<div class="row"><span><b>${esc(p.name)}</b><br><small>${fmt(p.price)} · کۆگا: ${p.stock}</small></span><span><button class="btn" data-edit="${p.id}">دەستکاری</button> <button class="btn" data-del="${p.id}">سڕینەوە</button></span></div>`).join("");$("manageProducts").querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>{let p=products.find(x=>x.id===+b.dataset.edit);$("pid").value=p.id;$("name").value=p.name;$("category").value=p.category;$("price").value=p.price;$("stock").value=p.stock;$("emoji").value=p.emoji||"📦";$("image").value=p.image_url||"";$("description").value=p.description||"";$("formTitle").textContent="دەستکاریکردنی بەرهەم";$("productForm").scrollIntoView()});$("manageProducts").querySelectorAll("[data-del]").forEach(b=>b.onclick=async()=>{if(!confirm("دڵنیایت لە سڕینەوە؟"))return;let {error}=await db.from("products").delete().eq("id",b.dataset.del);if(error)msg("نەتوانرا بسڕدرێتەوە");else dashboard()});$("orders").innerHTML=os.map(o=>`<div class="row"><span><b>داواکاری #${o.id} · ${esc(o.customer_name)}</b><br><small>${esc(o.phone)} · ${esc(o.address||"")}<br>${new Date(o.created_at).toLocaleString()} · ${fmt(o.total)}</small></span><select class="field" style="width:auto" data-status="${o.id}"><option value="new" ${o.status==="new"?"selected":""}>نوێ</option><option value="processing" ${o.status==="processing"?"selected":""}>لە ئامادەکردندایە</option><option value="completed" ${o.status==="completed"?"selected":""}>تەواوبوو</option><option value="cancelled" ${o.status==="cancelled"?"selected":""}>هەڵوەشێنراوە</option></select></div>`).join("")||"داواکاری نییە";$("orders").querySelectorAll("[data-status]").forEach(s=>s.onchange=async()=>{let {error}=await db.from("orders").update({status:s.value}).eq("id",s.dataset.status);msg(error?"گۆڕینی دۆخ سەرکەوتوو نەبوو":"دۆخ نوێ کرایەوە")})}
-document.querySelector('a[href="#admin"]').onclick=()=>setTimeout(session,100);if(location.hash==="#admin")session();db.auth.onAuthStateChange(()=>{if(location.hash==="#admin")session()});loadProducts();
+
+async function order(id){
+
+let p=products.find(x=>x.id===id),
+
+q=Number(prompt("چەند دانە؟","1"));
+
+if(!Number.isInteger(q)||q<1||q>p.stock)return msg("ژمارەی دانە دروست نییە.");
+
+let n=prompt("ناوی کڕیار:");
+
+if(!n?.trim())return;
+
+let phone=prompt("ژمارەی مۆبایل:");
+
+if(!phone?.trim())return;
+
+let address=prompt("ناونیشانی گەیاندن (ئارەزوومەندانە):")||"";
+
+let {data,error}=await db.rpc("place_order",{
+
+p_customer_name:n,p_phone:phone,p_address:address,
+
+p_items:[{product_id:id,quantity:q}]
+
+});
+
+if(error){
+
+console.error(error);
+
+return msg("داواکاری نەکرا؛ دووبارە هەوڵ بدەرەوە.")
+
+}
+
+msg("داواکاری تۆمار کرا! ژمارە: "+data);
+
+window.open("https://wa.me/9647501405754?text="+encodeURIComponent(
+
+`سڵاو، داواکاری #${data}\n${p.name} × ${q}\nکڕیار: ${n}\nمۆبایل: ${phone}\nناونیشان: ${address}\nکۆ: ${fmt(p.price*q)}`
+
+),"_blank");
+
+loadProducts()
+
+}
+
+async function session(){
+
+let {data:{session}}=await db.auth.getSession(),
+
+ok=session?.user.id===ADMIN;
+
+$("login").classList.toggle("hidden",!!ok);
+
+$("dash").classList.toggle("hidden",!ok);
+
+if(session&&!ok){
+
+await db.auth.signOut();
+
+msg("ئەم هەژمارە دەسەڵاتی بەڕێوەبەری نییە")
+
+}
+
+if(ok)await dashboard()
+
+}
+
+$("loginForm").onsubmit=async e=>{
+
+e.preventDefault();
+
+let {data,error}=await db.auth.signInWithPassword({
+
+email:$("email").value,password:$("password").value
+
+});
+
+if(error)return msg("ئیمەیڵ یان وشەی نهێنی هەڵەیە");
+
+if(data.user.id!==ADMIN){
+
+await db.auth.signOut();
+
+return msg("ئەم هەژمارە ڕێگەپێدراو نییە")
+
+}
+
+session()
+
+};
+
+$("logout").onclick=async()=>{
+
+await db.auth.signOut();
+
+session()
+
+};
+
+$("clear").onclick=()=>{
+
+$("productForm").reset();
+
+$("pid").value="";
+
+$("formTitle").textContent="زیادکردنی بەرهەم"
+
+};
+
+$("productForm").onsubmit=async e=>{
+
+e.preventDefault();
+
+let row={
+
+name:$("name").value.trim(),
+
+category:$("category").value.trim(),
+
+price:+$("price").value,
+
+stock:+$("stock").value,
+
+emoji:$("emoji").value||"📦",
+
+image_url:$("image").value.trim(),
+
+description:$("description").value.trim()
+
+};
+
+let id=$("pid").value;
+
+let {error}=id
+
+?await db.from("products").update(row).eq("id",id)
+
+:await db.from("products").insert(row);
+
+if(error){
+
+console.error(error);
+
+return msg("هەڵە لە پاشەکەوتکردن")
+
+}
+
+msg("بەرهەم پاشەکەوت کرا");
+
+$("clear").click();
+
+dashboard()
+
+};
+
+async function dashboard(){
+
+await loadProducts();
+
+let [{data:os,error},{count}]=await Promise.all([
+
+db.from("orders").select("*").order("created_at",{ascending:false}),
+
+db.from("products").select("*",{count:"exact",head:true})
+
+]);
+
+if(error)return msg("داواکارییەکان نەهاتن");
+
+$("nProducts").textContent=count||0;
+
+$("nOrders").textContent=os.length;
+
+$("revenue").textContent=fmt(os.reduce((s,o)=>s+Number(o.total),0));
+
+$("manageProducts").innerHTML=products.map(p=>`
+
+<div class="row">
+
+<span><b>${esc(p.name)}</b><br><small>${fmt(p.price)} · کۆگا: ${p.stock}</small></span>
+
+<span>
+
+<button class="btn" data-edit="${p.id}">دەستکاری</button>
+
+<button class="btn" data-del="${p.id}">سڕینەوە</button>
+
+</span>
+
+</div>`).join("");
+
+$("manageProducts").querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>{
+
+let p=products.find(x=>x.id===+b.dataset.edit);
+
+$("pid").value=p.id;
+
+$("name").value=p.name;
+
+$("category").value=p.category;
+
+$("price").value=p.price;
+
+$("stock").value=p.stock;
+
+$("emoji").value=p.emoji||"📦";
+
+$("image").value=p.image_url||"";
+
+$("description").value=p.description||"";
+
+$("formTitle").textContent="دەستکاریکردنی بەرهەم";
+
+$("productForm").scrollIntoView()
+
+});
+
+$("manageProducts").querySelectorAll("[data-del]").forEach(b=>b.onclick=async()=>{
+
+if(!confirm("دڵنیایت لە سڕینەوە؟"))return;
+
+let {error}=await db.from("products").delete().eq("id",b.dataset.del);
+
+if(error)msg("نەتوانرا بسڕدرێتەوە");
+
+else dashboard()
+
+});
+
+$("orders").innerHTML=os.map(o=>`
+
+<div class="row">
+
+<span>
+
+<b>داواکاری #${o.id} · ${esc(o.customer_name)}</b><br>
+
+<small>${esc(o.phone)} · ${esc(o.address||"")}<br>
+
+${new Date(o.created_at).toLocaleString()} · ${fmt(o.total)}</small>
+
+</span>
+
+<select class="field" style="width:auto" data-status="${o.id}">
+
+<option value="new" ${o.status==="new"?"selected":""}>نوێ</option>
+
+<option value="processing" ${o.status==="processing"?"selected":""}>لە ئامادەکردندایە</option>
+
+<option value="completed" ${o.status==="completed"?"selected":""}>تەواوبوو</option>
+
+<option value="cancelled" ${o.status==="cancelled"?"selected":""}>هەڵوەشێنراوە</option>
+
+</select>
+
+</div>`).join("")||"داواکاری نییە";
+
+$("orders").querySelectorAll("[data-status]").forEach(s=>s.onchange=async()=>{
+
+let {error}=await db.from("orders").update({status:s.value}).eq("id",s.dataset.status);
+
+msg(error?"گۆڕینی دۆخ سەرکەوتوو نەبوو":"دۆخ نوێ کرایەوە")
+
+})
+
+}
+
+function adminRoute(){
+
+const isAdminRoute=location.hash==="#admin";
+
+$("admin").classList.toggle("hidden",!isAdminRoute);
+
+if(isAdminRoute)session()
+
+}
+
+window.addEventListener("hashchange",adminRoute);
+
+adminRoute();
+
+db.auth.onAuthStateChange(()=>{
+
+if(location.hash==="#admin")session()
+
+});
+
+loadProducts();
+
 </script>
+
 </body>
+
 </html>
